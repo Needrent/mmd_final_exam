@@ -1,18 +1,38 @@
 /*---------------
-    Global reset
+    Global reset and imports
 ----------------*/
 *{
     margin: 0;
     padding: 0;
     font-size: 10px;
 }
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,800;1,400;1,500&display=swap');
+body{
+    width: 50%;
+    margin: auto;
+    font-family: 'EB Garamond', serif;
+}
 /*---------------
     variables
 ----------------*/
 :root{
-    --headings-size: 10rem;
-    --headings-wordspace: -2.5rem;
+    --headings-size: 5rem;
+    --headings-wordspace: -1.5rem;
     --bold: bolder;
+
+    --p-size: 2.2rem;
+    --p-lineheight: 2.6rem;
+
+    --regular: 400;
+    --semi: 600;
+    --bold: 800;
+
+    /*colors*/
+    --color-main: red;
+    --color-text: black;
+    --color-acc: pink;
+
+    --btn-padding: 2rem;
 }
 /*---------------
     Typography
@@ -21,9 +41,55 @@
     font-family: belshaw;
     src: url(fonts/belshaw.ttf);
 }
-h1{
+h1,h2{
     font-family: belshaw;
     font-weight: 100;
-    font-size: var(--headings-size);
     word-spacing: var(--headings-wordspace);
+    font-size: var(--headings-size);
+    color: var(--color-main);
 }
+p, li, a, q{
+    font-size: var(--p-size);
+    line-height: var(--p-lineheight);
+
+}
+    p, a, q, ul{
+        margin: 0 0 var(--p-size) 0;
+    }
+/* Links */
+a, a:visited{
+    position: relative;
+    font-weight: var(--bold);
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+    will-change: transition;
+}
+    a:hover{
+        color: var(--color-acc);
+    }
+a::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 85%;
+    height: 3px;
+    background: var(--color-acc);
+    z-index: -1;
+}
+/* Call to Action (CTA) */
+a.cta{
+    font-weight: var(--semi);
+    text-transform: uppercase;
+    padding: var(--btn-padding);
+    background: var(--color-acc);
+    margin: calc(var(--btn-padding)/2) 0 0 0;
+    display: inline-block;
+}
+    .cta::before{
+        display: none;
+    }
+    a.cta:hover{
+        background: var(--color-text);
+    }
