@@ -7,8 +7,9 @@
     font-size: 10px;
 }
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,800;1,400;1,500&display=swap');
+
 body{
-    width: 50%;
+    width: 90%;
     margin: auto;
     font-family: 'EB Garamond', serif;
 }
@@ -27,10 +28,14 @@ body{
     --semi: 600;
     --bold: 800;
 
+    --q-size: 5rem;
+    --q-lineheight: 4.5rem;
+    --q-p-size: 2.5rem;
+
     /*colors*/
     --color-main: red;
     --color-text: black;
-    --color-acc: pink;
+    --color-acc: #FFD1D1;
 
     --btn-padding: 2rem;
 }
@@ -64,20 +69,14 @@ a, a:visited{
     text-decoration: none;
     transition: 0.3s;
     will-change: transition;
+    text-decoration: underline;
+    text-decoration-color: var(--color-acc);
+    text-decoration-thickness: 0.3rem;
 }
     a:hover{
         color: var(--color-acc);
+        text-decoration-color: var(--color-text);
     }
-a::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 85%;
-    height: 3px;
-    background: var(--color-acc);
-    z-index: -1;
-}
 /* Call to Action (CTA) */
 a.cta{
     font-weight: var(--semi);
@@ -93,3 +92,80 @@ a.cta{
     a.cta:hover{
         background: var(--color-text);
     }
+q{
+    font-size: var(--q-size);
+    line-height: var(--q-lineheight);
+    font-style: italic;
+    font-weight: var(--regular);
+}
+q+p{
+    font-style: italic;
+    font-size: var(--q-p-size);
+}
+.note{
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 3.4rem;
+}
+/*---------------
+    Bullet and lists
+----------------*/
+li{
+    position: relative;
+    list-style: none;
+    list-style-position: inside;
+    margin: 0 0 0 3.5rem;
+    line-height: 150%;
+}
+li::before{
+    content: url(favicon-32x32.png);
+    position: absolute;
+    left: -3.5rem;
+}
+/*---------------
+    Dividers
+----------------*/
+hr{
+    height: 2rem;
+    border: none;
+    background:url(assets/divider.png) repeat-x;
+    margin: var(--p-size) 0 var(--p-size) 0;
+}
+section{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 0 50rem 0;
+    column-gap: 15px;
+}
+
+article:last-child{
+    grid-column-end: -1;
+}
+section h2{
+    grid-column: 1/-1;
+}
+/*---------------
+    Break points
+----------------*/
+@media (min-width:768px){
+    body{
+        width: 50%;
+    }
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1.5rem 1fr;
+        margin: 0 0 50rem 0;
+        column-gap: 15px;
+    }
+    section hr{
+        height: calc(100% - var(--p-size));
+        background: url(assets/divider_split.png) repeat-y;
+        margin: 0;
+    }
+    article:last-child{
+        grid-column-end: -1;
+    }
+    section h2{
+        grid-column: 1/-1;
+    }
+}
