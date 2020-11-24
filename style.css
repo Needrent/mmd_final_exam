@@ -19,7 +19,7 @@
 ----------------*/
 @font-face{
     font-family: belshaw;
-    src: url(/fonts/belshaw.ttf);
+    src: url(fonts/belshaw.ttf);
 }
 h1{
     font-family: belshaw;
