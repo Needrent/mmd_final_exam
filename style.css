@@ -6,12 +6,10 @@
     padding: 0;
     font-size: 10px;
 }
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,800;1,400;1,500&display=swap');
-
 body{
     width: 90%;
     margin: auto;
-    font-family: 'EB Garamond', serif;
+    font-family: 'Vollkorn', serif;
 }
 /*---------------
     variables
@@ -19,14 +17,13 @@ body{
 :root{
     --headings-size: 5rem;
     --headings-wordspace: -1.5rem;
-    --bold: bolder;
 
-    --p-size: 2.2rem;
-    --p-lineheight: 2.6rem;
+    --p-size: 1.6rem;
+    --p-lineheight: 150%;
 
     --regular: 400;
-    --semi: 600;
-    --bold: 800;
+    --semi: 500;
+    --bold: 600;
 
     --q-size: 5rem;
     --q-lineheight: 4.5rem;
@@ -56,6 +53,7 @@ h1,h2{
 p, li, a, q{
     font-size: var(--p-size);
     line-height: var(--p-lineheight);
+    font-weight: var(--regular);
 
 }
     p, a, q, ul{
@@ -63,6 +61,7 @@ p, li, a, q{
     }
 /* Links */
 a, a:visited{
+    text-transform: uppercase;
     position: relative;
     font-weight: var(--bold);
     color: black;
