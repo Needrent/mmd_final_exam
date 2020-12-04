@@ -1,6 +1,20 @@
 "use strict";
+
 /******
-    Variables
+    Menu Animation
+******/
+const menuBtn = document.querySelector("label[for='mobilenav']");
+const menuItems = document.querySelectorAll("label[for='mobilenav'] span");
+
+menuBtn.addEventListener("click", ()=>{
+
+    menuItems[0].classList.toggle("aniMenuTop");
+    menuItems[1].classList.toggle("aniMenuCenter");
+    menuItems[2].classList.toggle("aniMenuBottom");
+})
+
+/******
+    Fetch Variables
 ******/
 const linkProdukt = "http://kontrolpanel.johannesantiksalg.dk/wp-json/wp/v2/produkt?_embed";
 const linkInfo = "http://kontrolpanel.johannesantiksalg.dk/wp-json/wp/v2/information";
