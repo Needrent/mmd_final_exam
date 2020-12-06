@@ -10,10 +10,10 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    width: 90%;
+    width: 100%;
     margin: auto;
     font-family: 'Vollkorn', serif;
-    background: pink;
+    background:white;
 }
 /*---------------
     variables
@@ -30,8 +30,10 @@ body{
     --bold: 600;
 
     --q-size: 5rem;
-    --q-lineheight: 4.5rem;
+    --q-lineheight: 5.4rem;
     --q-p-size: 2.5rem;
+
+    --hightlight-size: 5rem;
 
     /*colors*/
     --color-main: red;
@@ -111,7 +113,7 @@ q{
     font-size: var(--q-size);
     line-height: var(--q-lineheight);
     font-style: italic;
-    font-weight: var(--regular);
+    font-weight: 100;
 }
 q+p{
     font-style: italic;
@@ -169,10 +171,22 @@ section h2{
 /*---------------
     Menu / Navigation
 ----------------*/
-nav{
+nav#topMenu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,0.9);
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
     display: flex;
     align-content: center;
     flex-direction: column;
+    transform: translateX(100%);
+    transition: 0.5s;
+}
+.menuIn{
+    transform: translateX(0) !important;
 }
 nav img{
     max-width: 27.0rem;
@@ -183,8 +197,8 @@ nav ul{
     width: 100%;
 }
 nav li {
-    display: inline;
-    margin: 0 2.9rem 0 0;
+    display: block;
+    margin: 0 0 2.9rem 0;
 }
     nav li:last-child{
         margin: 0 0 0 0;
@@ -198,15 +212,28 @@ nav li::before{
 /*---------------
     Mobile bottom nav
 ----------------*/
+nav.mobile{
+    width: 100%;
+    background: white;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: var(--mobile-btn-size);
+    padding: 0.5rem 0 0.5rem 0;
 
+}
 input[type="checkbox"]{
     display: none;
 }
 label[for="mobilenav"]{
     position: relative;
     width: var(--mobile-btn-size);
-    height: var(--mobile-btn-size);
-    background: white;
+    height: calc(var(--mobile-btn-size) * 0.75);
+    align-self: center;
 }
     label[for="mobilenav"] span{
         position: absolute;
@@ -215,7 +242,6 @@ label[for="mobilenav"]{
         height: 0.5rem;
         border-radius: 1rem;
         background-color: black;
-        transition: 0.2s;
     }
     label[for="mobilenav"] span:nth-child(1){
         top: 0;
@@ -244,13 +270,13 @@ label[for="mobilenav"]{
 @keyframes top{
     100%{
         transform: rotate(45deg);
-        width: 5rem;
+        width: 3.5rem;
     }
 }
 @keyframes bottom{
     100%{
         transform: rotate(-45deg);
-        width: 5rem;
+        width: 3.5rem;
     }
 }
 @keyframes center{
@@ -267,13 +293,80 @@ label[for="mobilenav"]{
     }
 }
 /*---------------
+    Headers
+----------------*/
+
+.mobileHeader{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: var(--p-size) 0 var(--p-size) 0;
+}
+header aside,
+header section{
+    padding: var(--p-size);
+    background-color: var(--color-acc);
+}
+header h1{
+    color: var(--color-text);
+}
+header img{
+    float: left;
+}
+header section{
+    text-align: center;
+}
+.highlight > *{
+    font-size: var(--headings-size);
+    font-style: italic;
+    margin: 0;
+    height: auto;
+
+}
+.highlight h3{
+    font-size: calc(var(--headings-size) * 0.90);
+    text-transform: uppercase;
+    font-weight: var(--regular);
+    margin: 0;
+}
+/*---------------
     Break points
 ----------------*/
 @media (min-width:768px){
     body{
         width: 85%;
     }
-    .mobile{
+    nav.mobile{
+        display: none;
+    }
+    nav#topMenu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(255,255,255,0.9);
+        z-index: 999;
+        width: 100%;
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+    }
+    nav img{
+        max-width: 27.0rem;
+        align-self: center;
+    }
+    nav ul{
+        text-align: center;
+        width: 100%;
+    }
+    nav li {
+        display: inline;
+        margin: 0 2.9rem 0 0;
+    }
+        nav li:last-child{
+            margin: 0 0 0 0;
+        }
+    .mobileHeader{
         display: none;
     }
     section{

@@ -5,12 +5,15 @@
 ******/
 const menuBtn = document.querySelector("label[for='mobilenav']");
 const menuItems = document.querySelectorAll("label[for='mobilenav'] span");
+const menuSlider = document.querySelector("#topMenu");
 
 menuBtn.addEventListener("click", ()=>{
 
     menuItems[0].classList.toggle("aniMenuTop");
     menuItems[1].classList.toggle("aniMenuCenter");
     menuItems[2].classList.toggle("aniMenuBottom");
+
+    menuSlider.classList.toggle("menuIn");
 })
 
 /******
@@ -19,6 +22,17 @@ menuBtn.addEventListener("click", ()=>{
 const linkProdukt = "http://kontrolpanel.johannesantiksalg.dk/wp-json/wp/v2/produkt?_embed";
 const linkInfo = "http://kontrolpanel.johannesantiksalg.dk/wp-json/wp/v2/information";
 const linkEmployees = "http://kontrolpanel.johannesantiksalg.dk/wp-json/wp/v2/medarbejder?_embed";
+
+/******
+    Variables
+******/
+// Opening hours
+const openDays01 = document.querySelector("#open01");
+const openHours01 = document.querySelector("#hours01");
+const openDays02 = document.querySelector("#open02");
+const openHours02 = document.querySelector("#hours02");
+
+console.log(open);
 
 /******
     Fetch data
@@ -86,14 +100,13 @@ function showInfo(data){
         console.log(adressGislinge[1]);
 
         // Openings Hours
-        console.log(data[0].open_days01);
-        console.log(data[0].open_hours01a + " – " + data[0].open_hours01b);
+        openDays01.textContent = data[0].open_days01;
+        openHours01.textContent = data[0].open_hours01a + " – " + data[0].open_hours01b;
         if(data[0].open_days02 != "")
             {
-                console.log(data[0].open_days02);
-                console.log(data[0].open_hours02a + " – " + data[0].open_hours02b);
+                openDays02.textContent = data[0].open_days02;
+                openHours02.textContent = data[0].open_hours02a + " – " + data[0].open_hours02b;
             }
-
 }
 function showEmployees(data){
     data.forEach(employee => {
