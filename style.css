@@ -1,5 +1,5 @@
 /*---------------
-    Global reset and imports
+    Global reset
 ----------------*/
 *{
     margin: 0;
@@ -46,6 +46,7 @@ body{
     --mobile-btn-size: 3.6rem;
 
     --nav-negative-height: -10rem;
+    --nav-height: 20rem;
 }
 /*---------------
     Anchor target
@@ -53,6 +54,9 @@ body{
 .target{
     position: absolute;
     top: var(--nav-negative-height);
+}
+#products{
+    position: relative;
 }
 /*---------------
     Typography
@@ -68,7 +72,7 @@ h1,h2{
     font-size: var(--headings-size);
     color: var(--color-main);
 }
-p, li, a, q{
+p, li, a, q, span{
     font-size: var(--p-size);
     line-height: var(--p-lineheight);
     font-weight: var(--regular);
@@ -155,11 +159,15 @@ section{
     min-height: 100vh;
     position: relative;
 }
-section{
+main{
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 0 50rem 0;
     column-gap: 15px;
+}
+
+main img{
+    width: 100%;
 }
 
 article:last-child{
@@ -295,7 +303,6 @@ label[for="mobilenav"]{
 /*---------------
     Headers
 ----------------*/
-
 .mobileHeader{
     width: 100%;
     display: flex;
@@ -303,8 +310,12 @@ label[for="mobilenav"]{
     background-color: white;
     padding: var(--p-size) 0 var(--p-size) 0;
 }
+header{
+    display: grid;
+    grid-template-columns: 1fr;
+}
 header aside,
-header section{
+header article{
     padding: var(--p-size);
     background-color: var(--color-acc);
 }
@@ -314,7 +325,7 @@ header h1{
 header img{
     float: left;
 }
-header section{
+header article{
     text-align: center;
 }
 .highlight > *{
@@ -323,6 +334,9 @@ header section{
     margin: 0;
     height: auto;
 
+}
+.highlight p:nth-child(even){
+    margin: 0 0 -3rem 0;
 }
 .highlight h3{
     font-size: calc(var(--headings-size) * 0.90);
@@ -347,9 +361,12 @@ header section{
         background: rgba(255,255,255,0.9);
         z-index: 999;
         width: 100%;
+        height: var(--nav-height);
         display: flex;
         align-content: center;
         flex-direction: column;
+        transform: translateX(0);
+        transition: 0;
     }
     nav img{
         max-width: 27.0rem;
@@ -369,11 +386,28 @@ header section{
     .mobileHeader{
         display: none;
     }
-    section{
+    header{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: var(--nav-height) 0 0 0;
+    }
+    .about{
         display: grid;
         grid-template-columns: 1fr 1.5rem 1fr;
         margin: 0 0 50rem 0;
         column-gap: 15px;
+    }
+    .about h2{
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+    .about #irene,
+    .about #johannes{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about p{
+        padding: 0 0 0 1.5rem;
     }
     section hr{
         height: calc(100% - var(--p-size));
@@ -385,5 +419,33 @@ header section{
     }
     section h2{
         grid-column: 1/-1;
+    }
+    /**
+        produktContainer
+    **/
+    #products{
+        display: grid;
+        grid-template-columns: 25% 1fr;
+        gap: 1.5rem;
+    }
+    #produktContainer{
+        display: grid;
+        /*grid-template-columns: repeat(2, 1fr);*/
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    #produktContainer img{
+        width: 100%;
+        height: 100%;
+    }
+    #produktContainer img:nth-child(1){
+        grid-area: 1 / 1 / 3 / 3;
+    }
+    #produktContainer img:nth-child(2){
+        grid-area: 1 / 3 / 2 / 4;
+    }
+    #produktContainer img:nth-child(3){
+        grid-area: 2 / 3 / 3 / 4;
     }
 }

@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <div id="forside"></div>
+    <div id="forside" class="target"></div>
     <nav id="topMenu">
         <img src="assets/logo_web.png" alt="Et hjerte med vinger i siderne inspireret af Art Nouveau smedearbejde med Johannes Antik Salg nedeunder">
         <hr>
@@ -47,25 +47,121 @@
         <aside>
             <h1>Velkommen</h1>
             <q>Vi ynder at finde historien bag vores vare, det giver varen liv og charme.</q>
-            <p>- Irene Hjort, Fårevejle Butikken</p>
+            <p>- Irene Hjort, Ejer af Fårevejle Butikken</p>
         </aside>
-        <img src="assets/bannerImage.png" alt="billede af Johannes og Irene Hjorth foran Fårevejle Butikken">
-        <section class="highlight">
+        <picture>
+            <source media="(min-width: 1024px)" srcset="assets/bannerImage.png">
+            <!--change to biggest files after 901px-->
+            <source media="(min-width: 768px)" srcset="assets/bannerImage.png">
+            <!--change to medium files after 451px-->
+            <img src="assets/bannerImage_mobile.png" alt="billede af Johannes og Irene Hjorth foran Fårevejle Butikken">
+        </picture>
+        <article class="highlight">
             <h3>Åbningstider</h3>
             <p id="open01">tors. til fre.</p>
             <p id="hours01">13:30 - 16:30</p>
             <p id="open02">tors. til fre.</p>
             <p id="hours02">13:30 - 16:30</p>
-        </section>
+        </article>
     </header>
     <hr>
     <main>
-        <section >
+        <div id="products">
             <div class="target" id="produkter"></div>
+            <article>
              <h2>Produkter</h2>
-         </section>
+             <p>Her kan i se en lille del af vores udvalg fra Fårevejle Butikken.</p>
+             <p>For at følge med i de nyeste vare kan i følge os på enten <a href="https://www.facebook.com/JohannesAntikSalg" target="_blank">Facebook</a> eller <a href="https://www.instagram.com/johannesantiksalg/" target="_blank">Instagram</a> som @JohannesAntikSalg.</p>
+             <p>For at reservere en vare fra de sociale medier kan du skrive direkte på opslaget eller ringe Irene på indenfor vores <a href="#forside">åbningstider</a></p>
+             <a class="cta" href="tel:+4512345678">+45 60664251</a>
+             <p>Har du en forespørgelse på andet end det vi viser, så ring til Johannes på</p>
+             <a class="cta" href="tel:+4512345678">+45 60664251</a>
+            </article>
+            <div id="produktContainer">
+                <img src="assets/placeholder.jpg" alt="placeholder text">
+                <img src="assets/placeholder.jpg" alt="placeholder text">
+                <img src="assets/placeholder.jpg" alt="placeholder text">
+            </div>
+            <div id="modal">
+                <template>    
+                    <img src="assets/placeholder.jpg" alt="placeholder text">
+                    <h2>Title</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste explicabo ratione dolores quaerat laborum, odio veniam atque tenetur animi doloremque placeat inventore error, possimus praesentium hic deleniti pariatur. Inventore, officiis.</p>
+                    <h2>Pris</h2>
+                    <p>9000 kr</p>
+                    <p>(9999 kr inkl. noget andet)</p>
+                    <ul>
+                        <li>Items</li>
+                    </ul>
+                    <p>Kontakt os hvis der er andre vare på billedet du er interesseret i.</p>
+                    <a class="cta" href="#">Se mere på Instagram</a>
+                </template> 
+            </div>
+        </div>
+         <hr>
+        <section>
+            <div class="target" id="facetime"></div>
+            <img src="assets/placeholder.jpg" alt="facetime">
+            <div>
+                <h2>Facetime</h2>
+                <p>Som noget nyt har vi indført at du kan få vare i Fårevejle Butikken fremvist over FaceTime*.</p>
+                <p>Ring til Irene indenfor vores åbningstid <span id="callHours">(tors. til fre. 13:30 – 16:30 og lør. til søn. 11:30 – 16:30)</span> og hun vil fremvise vores vare direkte hjemme i din stue igennem din telefon.</p>
+                <a class="cta" href="tel">515268</a>
+                <p>* FaceTime er desværre kun tilgængeligt for iPhone brugere da FaceTime er et Apple eksklusivt produkt.</p>
+            </div>
+        </section>
+        <hr>
+        <section class="break">
+            <div class="target" id="om"></div>
+            <h2>Om Johannes Antik Salg</h2>
+            <p>Johannes Antik Salg er drevet af ægteparet Johannes Amos Hjort og Irene Hjorth, og er delt op i to afdelinger beligget i Gislinge og Fårevejle St.</p>
+        </section>
+        <hr>
+        <section>
+            <div>
+                <h2>Fårevejle Butikken</h2>
+                <p>Johannes Amos Hjorth startede forretningen tilbage i 19XX hvor han tidligere har tjent som Garder hos dronningen, og stod model til den skuptur der til den dag stadig står foran borgen.
+                </p>
+                <ul>
+                    <li>sds</li>
+                    <li>sds</li>
+                    <li>sdsd</li>
+                </ul>
+            </div>
+            <img src="assets/farevejlebutikken.png" alt="s">
+        </section>
+        <hr>
+        <section>
+            <img src="assets/gislingebutikken.png" alt="s">
+            <div>
+                <h2>Gislinge Butikken</h2>
+                <p>Johannes Amos Hjorth startede forretningen tilbage i 19XX hvor han tidligere har tjent som Garder hos dronningen, og stod model til den skuptur der til den dag stadig står foran borgen. </p>
+                <ul>
+                    <li>sds</li>
+                    <li>sds</li>
+                    <li>sdsd</li>
+                </ul>
+            </div>
+        </section>
+        <hr>
+        <section class="about">
+            <h2>mød ægteparet</h2>
+            <div id="irene">
+                <img src="assets/irenehjorth.png" alt="irene">
+                <div class="content"><p>
+                    Irene Hjorth bestyre butikken I Fårevejle.
+                </p></div>
+            </div>
+            <hr>
+            <div id="johannes">
+                <img src="assets/johanneshjorth.png" alt="johannes">
+                <div class="content">
+                    <p>Johannes Amos Hjorth startede forretningen tilbage i 19XX hvor han tidligere har tjent som Garder hos dronningen, og stod model til den skuptur der til den dag stadig står foran borgen.</p>
+                </div>
+            </div>
+        </section>
     </main>
-    <header></header>
+    <footer></footer>
     <script src="javascript/script.js"></script>
 </body>
 </html>
