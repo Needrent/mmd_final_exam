@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+    <meta property="og:url" content="http://johannesantiksalg.dk" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Johannes Antik Salg" />
+    <meta property="og:description" content="Find dit nye gamle møbel hos os" />
+    <meta property="og:image" content="http://johannesantiksalg.dk/assets/bannerImage.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="description" content="text">
     <title>Johannes Antik Salg</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -75,40 +80,41 @@
              <p>For at reservere en vare fra de sociale medier kan du skrive direkte på opslaget eller ringe Irene på indenfor vores <a href="#forside">åbningstider</a></p>
              <a class="cta" href="tel:+4512345678">+45 60664251</a>
              <p>Har du en forespørgelse på andet end det vi viser, så ring til Johannes på</p>
-             <a class="cta" href="tel:+4512345678">+45 60664251</a>
+             <a class="cta" href="tel:+4540113126">+45 40113126</a>
             </article>
             <div id="produktContainer">
-                <img src="assets/placeholder.jpg" alt="placeholder text">
-                <img src="assets/placeholder.jpg" alt="placeholder text">
-                <img src="assets/placeholder.jpg" alt="placeholder text">
-            </div>
-            <div id="modal">
-                <template>    
+                <template>
                     <img src="assets/placeholder.jpg" alt="placeholder text">
-                    <h2>Title</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste explicabo ratione dolores quaerat laborum, odio veniam atque tenetur animi doloremque placeat inventore error, possimus praesentium hic deleniti pariatur. Inventore, officiis.</p>
+                </template>
+            </div>
+            <div id="modal" class="hide">
+                <div class="close">x</div>
+                <img src="assets/placeholder.jpg" alt="placeholder text">
+                <section>
+                    <h2 id="modalTitle">Title</h2>
+                    <div id="modalDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste explicabo ratione dolores quaerat laborum, odio veniam atque tenetur animi doloremque placeat inventore error, possimus praesentium hic deleniti pariatur. Inventore, officiis.</div>
                     <h2>Pris</h2>
-                    <p>9000 kr</p>
-                    <p>(9999 kr inkl. noget andet)</p>
-                    <ul>
-                        <li>Items</li>
+                    <p id="modalPrice" class="highlight">9000 kr</p>
+                    <p id="modalAltPrice">(9999 kr inkl. noget andet)</p>
+                    <ul id="modalInfo">
                     </ul>
-                    <p>Kontakt os hvis der er andre vare på billedet du er interesseret i.</p>
-                    <a class="cta" href="#">Se mere på Instagram</a>
-                </template> 
+                    <p class="italic">Kontakt os hvis der er andre vare på billedet du er interesseret i.</p>
+                 </section>
+                 <a id="modalHref" class="cta" href="#">Se mere på Instagram</a>
             </div>
         </div>
          <hr>
         <section>
             <div class="target" id="facetime"></div>
-            <img src="assets/placeholder.jpg" alt="facetime">
             <div>
                 <h2>Facetime</h2>
                 <p>Som noget nyt har vi indført at du kan få vare i Fårevejle Butikken fremvist over FaceTime*.</p>
                 <p>Ring til Irene indenfor vores åbningstid <span id="callHours">(tors. til fre. 13:30 – 16:30 og lør. til søn. 11:30 – 16:30)</span> og hun vil fremvise vores vare direkte hjemme i din stue igennem din telefon.</p>
-                <a class="cta" href="tel">515268</a>
+                <a class="cta" href="tel:+4560664251">+45 60664251</a>
                 <p>* FaceTime er desværre kun tilgængeligt for iPhone brugere da FaceTime er et Apple eksklusivt produkt.</p>
             </div>
+            <img src="assets/placeholder.jpg" alt="facetime">
+            <img src="assets/placeholder.jpg" alt="facetime">
         </section>
         <hr>
         <section class="break">

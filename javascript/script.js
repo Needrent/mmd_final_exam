@@ -32,7 +32,7 @@ const openHours01 = document.querySelector("#hours01");
 const openDays02 = document.querySelector("#open02");
 const openHours02 = document.querySelector("#hours02");
 
-console.log(open);
+//console.log(open);
 
 /******
     Fetch data
@@ -50,36 +50,61 @@ function loadEmployees(link) {
 /******
     Use data (funtions)
 ******/
+/*
+const modalDescription = document.querySelector("#modalDescription");
+const modalPrice = document.querySelector("#modalPrice");
+const modalAltPrice = document.querySelector("#modalAltPrice");
+const modalInfo = document.querySelector("#modalInfo");
+const modalHref = document.querySelector("#modalHref");
+
+console.log(modalTitle);
+console.log(modalDescription);
+console.log(modalPrice);
+console.log(modalAltPrice);
+console.log(modalInfo);
+console.log(modalHref);*/
+const template = document.querySelector("template").content;
+
 function showProdukts(data){
     data.forEach(produkt => {
-        console.log(produkt);
+        //console.log(produkt);
+        document.querySelector("#modalAltPrice").classList.add("hide");
 
          // Image
-         console.log(produkt._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url);
-         console.log(produkt._embedded["wp:featuredmedia"][0].alt_text);
+         document.querySelector("#modal img").src = produkt._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+         document.querySelector("#modal img").alt = produkt._embedded["wp:featuredmedia"][0].alt_text;
         
         //Modal content
         console.log("MODALE");
-        console.log(produkt.content.rendered);
-        console.log(produkt.ig_link);
+        document.querySelector("#modalTitle").textContent = produkt.title.rendered;
+        document.querySelector("#modalDescription").innerHTML = produkt.content.rendered;
+        document.querySelector("#modalHref").href = produkt.ig_link;
 
         // Vare information
         const wholeCatalogInfo =  produkt.vare_information.split("\n");
+        console.log(wholeCatalogInfo);
 
             //insert designer to list (Vare information)
             wholeCatalogInfo.push(produkt._embedded["wp:term"][0][0].name)
 
             wholeCatalogInfo.forEach(catalogInfo => {
-                console.log("<li>" + catalogInfo + "</li>");         
+                let newLi = document.createElement("li");
+
+                newLi.textContent = catalogInfo;
+                console.log(catalogInfo);     
+
+                document.querySelector("#modalInfo").appendChild(newLi);
             });
 
 
             // Price
-            console.log(parseInt(produkt.price));
+            document.querySelector("#modalPrice").textContent = parseInt(produkt.price);
             if(produkt.alt_price != "")
             {
-                console.log(parseInt(produkt.price) + parseInt(produkt.alt_price));
-                console.log(produkt.extra);
+                const newPrice = parseInt(produkt.price) + parseInt(produkt.alt_price);
+                console.log(newPrice);
+                document.querySelector("#modalAltPrice").classList.remove("hide");
+                document.querySelector("#modalAltPrice").textContent = `(${newPrice} kr inkl. ${produkt.extra})`;
             }
     });
 }
@@ -110,7 +135,7 @@ function showInfo(data){
 }
 function showEmployees(data){
     data.forEach(employee => {
-        console.log(employee);
+        //console.log(employee);
         // About
         console.log(employee.title.rendered);
         console.log(employee.content.rendered);

@@ -15,6 +15,9 @@ body{
     font-family: 'Vollkorn', serif;
     background:white;
 }
+.hide{
+    display: none;
+}
 /*---------------
     variables
 ----------------*/
@@ -53,7 +56,7 @@ body{
 ----------------*/
 .target{
     position: absolute;
-    top: var(--nav-negative-height);
+    top: 0;
 }
 #products{
     position: relative;
@@ -224,7 +227,7 @@ nav.mobile{
     width: 100%;
     background: white;
     position: fixed;
-    z-index: 9999;
+    z-index: 9979;
     bottom: 0;
     left: 0;
     display: flex;
@@ -328,6 +331,7 @@ header img{
 header article{
     text-align: center;
 }
+.highlight,
 .highlight > *{
     font-size: var(--headings-size);
     font-style: italic;
@@ -343,6 +347,49 @@ header article{
     text-transform: uppercase;
     font-weight: var(--regular);
     margin: 0;
+}
+/*---------------
+    Modal
+----------------*/
+#modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9989;
+    background: rgba(0,0,0,0.5);
+    overflow-y: scroll;
+
+}
+#modal .close{
+    width: calc(var(--p-size) * 2);
+    height: calc(var(--p-size) * 2);
+    background: var(--color-acc);
+    position: fixed;
+    top: var(--p-size);
+    right: var(--p-size);
+    z-index: 9999;
+}
+#modal section{
+    background: var(--color-acc);
+    padding: var(--p-size);
+    min-height: auto;
+}
+#modal h2{
+    color: var(--color-text);
+}
+#modal h2:last-of-type{
+    margin: 0 0 -2rem 0;
+}
+#modal h2:last-of-type + p + p{
+    margin: -1rem 0 var(--p-size) 0;
+}
+#modal .italic{
+    font-style: italic;
+}
+#modal section a{
+    margin-top: var(--p-size);
 }
 /*---------------
     Break points
@@ -437,7 +484,6 @@ header article{
     }
     #produktContainer img{
         width: 100%;
-        height: 100%;
     }
     #produktContainer img:nth-child(1){
         grid-area: 1 / 1 / 3 / 3;
@@ -447,5 +493,8 @@ header article{
     }
     #produktContainer img:nth-child(3){
         grid-area: 2 / 3 / 3 / 4;
+    }
+    .target{
+        top: calc(var(--nav-negative-height) * 2);
     }
 }
