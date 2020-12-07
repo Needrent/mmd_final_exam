@@ -485,7 +485,7 @@ header article{
     #produktContainer img{
         width: 100%;
     }
-    #produktContainer img:nth-child(1){
+    #produktContainer img{
         grid-area: 1 / 1 / 3 / 3;
     }
     #produktContainer img:nth-child(2){

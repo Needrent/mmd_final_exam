@@ -50,62 +50,68 @@ function loadEmployees(link) {
 /******
     Use data (funtions)
 ******/
-/*
-const modalDescription = document.querySelector("#modalDescription");
-const modalPrice = document.querySelector("#modalPrice");
-const modalAltPrice = document.querySelector("#modalAltPrice");
-const modalInfo = document.querySelector("#modalInfo");
-const modalHref = document.querySelector("#modalHref");
-
-console.log(modalTitle);
-console.log(modalDescription);
-console.log(modalPrice);
-console.log(modalAltPrice);
-console.log(modalInfo);
-console.log(modalHref);*/
 const template = document.querySelector("template").content;
+const modal =  document.querySelector("#modal");
+
+        // hide alt price in modal
+        document.querySelector("#modalAltPrice").classList.add("hide");
 
 function showProdukts(data){
     data.forEach(produkt => {
-        //console.log(produkt);
-        document.querySelector("#modalAltPrice").classList.add("hide");
+        //Creating the products
+        const clone = template.cloneNode(true);
 
-         // Image
-         document.querySelector("#modal img").src = produkt._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
-         document.querySelector("#modal img").alt = produkt._embedded["wp:featuredmedia"][0].alt_text;
-        
-        //Modal content
-        console.log("MODALE");
-        document.querySelector("#modalTitle").textContent = produkt.title.rendered;
-        document.querySelector("#modalDescription").innerHTML = produkt.content.rendered;
-        document.querySelector("#modalHref").href = produkt.ig_link;
+        clone.querySelector("img").src = produkt._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+        clone.querySelector("img").alt = produkt._embedded["wp:featuredmedia"][0].alt_text;
 
-        // Vare information
-        const wholeCatalogInfo =  produkt.vare_information.split("\n");
-        console.log(wholeCatalogInfo);
+        // Creating the modal button
+        let button = clone.querySelector("img");
 
-            //insert designer to list (Vare information)
-            wholeCatalogInfo.push(produkt._embedded["wp:term"][0][0].name)
-
-            wholeCatalogInfo.forEach(catalogInfo => {
-                let newLi = document.createElement("li");
-
-                newLi.textContent = catalogInfo;
-                console.log(catalogInfo);     
-
-                document.querySelector("#modalInfo").appendChild(newLi);
+        // Add click event to image to open modal
+        button.addEventListener("click", function(){
+            modal.classList.remove("hide");
+            document.querySelector("div .close").addEventListener("click",()=>{
+                modal.classList.add("hide");
             });
 
+            // Image
+            document.querySelector("#modal img").src = produkt._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+            document.querySelector("#modal img").alt = produkt._embedded["wp:featuredmedia"][0].alt_text;
+        
+            //Modal content
+            document.querySelector("#modalTitle").textContent = produkt.title.rendered;
+            document.querySelector("#modalDescription").innerHTML = produkt.content.rendered;
+            document.querySelector("#modalHref").href = produkt.ig_link;
 
-            // Price
-            document.querySelector("#modalPrice").textContent = parseInt(produkt.price);
-            if(produkt.alt_price != "")
-            {
-                const newPrice = parseInt(produkt.price) + parseInt(produkt.alt_price);
-                console.log(newPrice);
-                document.querySelector("#modalAltPrice").classList.remove("hide");
-                document.querySelector("#modalAltPrice").textContent = `(${newPrice} kr inkl. ${produkt.extra})`;
-            }
+            // Vare information
+            const wholeCatalogInfo =  produkt.vare_information.split("\n");
+            console.log(wholeCatalogInfo);
+
+                //insert designer to list (Vare information)
+                wholeCatalogInfo.push(produkt._embedded["wp:term"][0][0].name)
+
+                wholeCatalogInfo.forEach(catalogInfo => {
+                    let newLi = document.createElement("li");
+
+                    newLi.textContent = catalogInfo;
+                    console.log(catalogInfo);     
+
+                    document.querySelector("#modalInfo").appendChild(newLi);
+                });
+
+
+                // Price
+                document.querySelector("#modalPrice").textContent = parseInt(produkt.price);
+                if(produkt.alt_price != "")
+                {
+                    const newPrice = parseInt(produkt.price) + parseInt(produkt.alt_price);
+                    console.log(newPrice);
+                    document.querySelector("#modalAltPrice").classList.remove("hide");
+                    document.querySelector("#modalAltPrice").textContent = `(${newPrice} kr inkl. ${produkt.extra})`;
+                }
+        })
+            //Append to DOM
+            document.querySelector("#produktContainer").appendChild(clone);
     });
 }
 function showInfo(data){
