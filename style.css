@@ -52,6 +52,22 @@ body{
     --nav-height: 20rem;
 }
 /*---------------
+    A little niceness for Chrome users also used on the modal
+    https://css-tricks.com/snippets/css/complete-guide-grid/
+----------------*/
+body::-webkit-scrollbar {
+    width: 1em;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color:rgba(255,0,0,0.5);
+    outline: var(--color-main);
+  }
+/*---------------
     Anchor target
 ----------------*/
 .target{
@@ -362,6 +378,19 @@ header article{
     overflow-y: scroll;
 
 }
+#modal::-webkit-scrollbar {
+    width: 1em;
+  }
+   
+  #modal::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  #modal::-webkit-scrollbar-thumb {
+    background-color:rgba(255,0,0,0.5);
+    outline: var(--color-main);
+  }
+
 #modal .close{
     width: calc(var(--p-size) * 2);
     height: calc(var(--p-size) * 2);
@@ -497,4 +526,41 @@ header article{
     .target{
         top: calc(var(--nav-negative-height) * 2);
     }
+    #modal{
+        overflow-y: hidden;
+    }
+    #modalBody section{
+        grid-area: info;
+        overflow-y: scroll;
+        height: 65.5rem
+    }
+    #modalBody a{
+        grid-area: link;
+        max-height: 1.8rem;
+    }
+    #modalBody img{
+        grid-area: image;
+    }
+    #modalBody{
+        margin: 10vh auto 10vh auto;
+        width: 60%;
+        display: grid;
+        grid-template-areas: 
+        "info image image image"
+        "info image image image"
+        "link image image image";
+    }
+    #modalBody section::-webkit-scrollbar {
+        width: 1em;
+      }
+       
+      #modalBody section::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+       
+      #modalBody section::-webkit-scrollbar-thumb {
+        background-color:rgba(255,0,0,0.5);
+        outline: var(--color-main);
+      }
+
 }

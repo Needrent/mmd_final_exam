@@ -87,8 +87,11 @@ function showProdukts(data){
             const wholeCatalogInfo =  produkt.vare_information.split("\n");
             console.log(wholeCatalogInfo);
 
+            // clear the list
+            document.querySelector("#modalInfo").textContent = "";
+
                 //insert designer to list (Vare information)
-                wholeCatalogInfo.push(produkt._embedded["wp:term"][0][0].name)
+                wholeCatalogInfo.push(produkt._embedded["wp:term"][0][0].name);
 
                 wholeCatalogInfo.forEach(catalogInfo => {
                     let newLi = document.createElement("li");
@@ -108,6 +111,9 @@ function showProdukts(data){
                     console.log(newPrice);
                     document.querySelector("#modalAltPrice").classList.remove("hide");
                     document.querySelector("#modalAltPrice").textContent = `(${newPrice} kr inkl. ${produkt.extra})`;
+                }
+                else{
+                    document.querySelector("#modalAltPrice").classList.add("hide");
                 }
         })
             //Append to DOM
