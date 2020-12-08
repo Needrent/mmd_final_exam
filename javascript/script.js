@@ -69,7 +69,7 @@ function showProdukts(data){
         clone.querySelector("img").alt = produkt._embedded["wp:featuredmedia"][0].alt_text;
 
         // Creating the modal button
-        let button = clone.querySelector("img");
+        let button = clone.querySelector(".more");
 
         // Add click event to image to open modal
         button.addEventListener("click", function(){
@@ -108,7 +108,7 @@ function showProdukts(data){
 
 
                 // Price
-                document.querySelector("#modalPrice").textContent = parseInt(produkt.price);
+                document.querySelector("#modalPrice").textContent = parseInt(produkt.price) + " kr";
                 if(produkt.alt_price != "")
                 {
                     const newPrice = parseInt(produkt.price) + parseInt(produkt.alt_price);
