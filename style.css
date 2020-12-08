@@ -91,14 +91,17 @@ h1,h2{
     font-size: var(--headings-size);
     color: var(--color-main);
 }
-p, li, a, q, span{
+p, li, a, q, span,i,b,strong{
     font-size: var(--p-size);
     line-height: var(--p-lineheight);
     font-weight: var(--regular);
 
 }
-    p, a, q, ul{
+    a, q{
         margin: 0 0 var(--p-size) 0;
+    }
+    p, ul, h2, h3{
+        margin: 0 var(--p-size) var(--p-size) var(--p-size);
     }
 /* Links */
 a, a:visited{
@@ -123,8 +126,8 @@ a.cta{
     text-transform: uppercase;
     padding: var(--btn-padding);
     background: var(--color-acc);
-    margin: calc(var(--btn-padding)/2) 0 0 0;
-    display: inline-block;
+    margin: calc(var(--btn-padding)/2) auto calc(var(--btn-padding)/2) auto;
+    display: table;
 }
     .cta::before{
         display: none;
@@ -343,6 +346,7 @@ header h1{
 }
 header img{
     float: left;
+    width: 100%;
 }
 header article{
     text-align: center;
@@ -377,6 +381,12 @@ header article{
     background: rgba(0,0,0,0.5);
     overflow-y: scroll;
 
+}
+#modal p,
+#modal ul,
+#modal h2,
+#modal h3{
+    margin: 0 0 var(--p-size) 0;
 }
 #modal::-webkit-scrollbar {
     width: 1em;
@@ -464,7 +474,7 @@ header article{
     }
     header{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr auto 1fr;
         margin: var(--nav-height) 0 0 0;
     }
     .about{

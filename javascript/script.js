@@ -57,7 +57,11 @@ const modal =  document.querySelector("#modal");
         document.querySelector("#modalAltPrice").classList.add("hide");
 
 function showProdukts(data){
-    data.forEach(produkt => {
+    // newest post in focus
+    const sortData = data.reverse();
+    
+    sortData.forEach(produkt => {
+        console.log(produkt);
         //Creating the products
         const clone = template.cloneNode(true);
 
