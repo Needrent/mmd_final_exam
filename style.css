@@ -588,11 +588,11 @@ footer ul li::before{
         grid-column: 1 / 4;
     }
     #iphone{
-        width: 53%;
+        width: 107%;
         grid-column: 1 / 2;
-        transform: rotate(-4deg);
+        transform: rotate(14deg);
         top: -3%;
-        left: 2%;
+        left: 51%;
     }
     p, ul, h2, h3{
         margin: 0 0 var(--p-size) 0;
