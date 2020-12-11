@@ -449,15 +449,40 @@ header article{
     main content
 
 ********/
-.mainContent:nth-of-type(1) video{
-    height: 50%;
-    width: auto;
+#iphone{
+    width: 53%;
+    height: auto;
     position: absolute;
-    transform: rotate(10deg);
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / 2;
+    transform: rotate(-4deg);
     transform-origin: center center;
-    top: -1%;
-    left: 20%;
+    top: -3%;
+    left: 2%;
 }
+#iphone * {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+#iphone img:nth-child(1){
+    z-index: 2;
+    pointer-events: none;
+}
+#iphone video{
+    z-index: 1;
+}
+    #iphone img:nth-child(1){
+        width: 100%;
+        transform-origin: bottom center;
+        transform: scale(.87) translateY(100);
+    }
+    #iphone video{
+        width: 100%;
+        transform-origin: bottom center;
+        transform: scale(.87) translateY(0);
+    }
 .mainContent ul{
     text-align: center;
 }
@@ -553,15 +578,6 @@ footer ul li::before{
     .mainContent:nth-of-type(1) div{
         grid-column: 4 / -1;
     }
-    .mainContent:nth-of-type(1) video{
-        height: 110%;
-        width: auto;
-        position: absolute;
-        transform: rotate(10deg);
-        transform-origin: top left;
-        top: -11%;
-        left: 10%;
-    }
     .mainContent:nth-of-type(1) img{
         grid-column: 2 / 4;
     }
@@ -570,6 +586,13 @@ footer ul li::before{
     }
     .mainContent:nth-of-type(4) picture{
         grid-column: 1 / 4;
+    }
+    #iphone{
+        width: 53%;
+        grid-column: 1 / 2;
+        transform: rotate(-4deg);
+        top: -3%;
+        left: 2%;
     }
     p, ul, h2, h3{
         margin: 0 0 var(--p-size) 0;
