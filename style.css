@@ -217,6 +217,7 @@ nav#topMenu{
 }
 nav img{
     max-width: 27.0rem;
+    height: 8rem;
     align-self: center;
 }
 nav li {
