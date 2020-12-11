@@ -15,7 +15,6 @@ menuBtn.addEventListener("click", ()=>{
 
     menuSlider.classList.toggle("menuIn");
 })
-
 /******
     Fetch Variables
 ******/
@@ -50,7 +49,7 @@ function loadEmployees(link) {
 /******
     Use data (funtions)
 ******/
-const template = document.querySelector("template").content;
+const templateProduct = document.querySelector("#templateProduct").content;
 const modal =  document.querySelector("#modal");
 
         // hide alt price in modal
@@ -63,7 +62,7 @@ function showProdukts(data){
     sortData.forEach(produkt => {
         console.log(produkt);
         //Creating the products
-        const clone = template.cloneNode(true);
+        const clone = templateProduct.cloneNode(true);
 
         clone.querySelector("img").src = produkt._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
         clone.querySelector("img").alt = produkt._embedded["wp:featuredmedia"][0].alt_text;
@@ -106,7 +105,6 @@ function showProdukts(data){
                     document.querySelector("#modalInfo").appendChild(newLi);
                 });
 
-
                 // Price
                 document.querySelector("#modalPrice").textContent = parseInt(produkt.price) + " kr";
                 if(produkt.alt_price != "")
@@ -128,17 +126,18 @@ function showInfo(data){
         // set up data for HTML
         console.log(data[0].facetime);
         console.log(data[0].phone);
-        console.log(data[0].cvr);
+        document.querySelector("#cvr").textContent = `CVR.: ${data[0].cvr}`;
 
         // Split adress Farevejle to two lines
         const adressFarevejle =  data[0].farevejle_adress.split(", ");
-        console.log(adressFarevejle[0]);
+        document.querySelector("#farevejleAdress").textContent = adressFarevejle[0];
+        document.querySelector("#farevejleCity").textContent = adressFarevejle[1];
         console.log(adressFarevejle[1]);
 
         // Split adress Gislinge to two lines
         const adressGislinge =  data[0].gislinge_adress.split(", ");
-        console.log(adressGislinge[0]);
-        console.log(adressGislinge[1]);
+        document.querySelector("#gislingeAdress").textContent = adressGislinge[0];
+        document.querySelector("#gislingeCity").textContent = adressGislinge[1];
 
         // Openings Hours
         openDays01.textContent = data[0].open_days01;
@@ -147,25 +146,35 @@ function showInfo(data){
             {
                 openDays02.textContent = data[0].open_days02;
                 openHours02.textContent = data[0].open_hours02a + " – " + data[0].open_hours02b;
+                document.querySelector("#callHours").textContent = 
+                `(${data[0].open_days01} ${data[0].open_hours01a} til ${data[0].open_hours01b} og 
+                    ${data[0].open_days02} ${data[0].open_hours02a} til ${data[0].open_hours02b})`;
+            }
+            else{
+                document.querySelector("#callHours").textContent = 
+                `(${data[0].open_days01} ${data[0].open_hours01a} til ${data[0].open_hours01b})`;
             }
 }
+const employeetemplate = document.querySelector("#employeetemplate").content;
+
 function showEmployees(data){
     data.forEach(employee => {
-        //console.log(employee);
+        const clone = employeetemplate.cloneNode(true);
+
         // About
-        console.log(employee.title.rendered);
-        console.log(employee.content.rendered);
+        clone.querySelector("h3").textContent = employee.title.rendered;
+        clone.querySelector(".content").innerHTML = employee.content.rendered;
 
         // Image
-        console.log(employee._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url);
+        clone.querySelector("img").src = employee._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
         console.log(employee._embedded["wp:featuredmedia"][0].alt_text);
+
+        document.querySelector("#employeeContainer").appendChild(clone);
     });
 }
-
 /******
     Run fetch links
 ******/
 loadProducts(linkProdukt);
 loadInfo(linkInfo);
 loadEmployees(linkEmployees);
-
