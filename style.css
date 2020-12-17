@@ -252,7 +252,9 @@ nav.mobile{
     justify-content: space-around;
     height: var(--mobile-btn-size);
     padding: 0.5rem 0 0.5rem 0;
-
+}
+nav.mobile img{
+    height: auto;
 }
 input[type="checkbox"]{
     display: none;
@@ -346,6 +348,7 @@ header h1{
 header img{
     float: left;
     width: 100%;
+    height: auto;
 }
 header article{
     text-align: center;
